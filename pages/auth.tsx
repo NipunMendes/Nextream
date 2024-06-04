@@ -1,20 +1,50 @@
 import axios from "axios";
 import Input from "@/components/Input";
 import { useCallback, useState } from "react";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const Auth = () => {
-  const [username, setUsername] = useState("");
+  const router = useRouter();
+  const [name, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [variant, setVariant] = useState("signIn");
+  const [variant, setVariant] = useState("login");
   const toggleVariant = useCallback(() => {
     setVariant((currentVariant) =>
-      currentVariant == "signIn" ? "signUp" : "signIn"
+      currentVariant == "login" ? "register" : "login"
     );
   }, []);
 
-  const signUp = useCallback(async () => {}, []);
+  const login = useCallback(async () => {
+    try {
+      await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+        callbackUrl: "/",
+      });
+
+      router.push("/");
+    } catch (error) {
+      console.log(error);
+    }
+  }, [email, password, router]);
+
+  const register = useCallback(async () => {
+    try {
+      await axios.post("/api/register", {
+        email,
+        name,
+        password,
+      });
+
+      login();
+    } catch (error) {
+      console.log(error);
+    }
+  }, [email, name, password, login]);
 
   return (
     <div className="relative h-full w-full bg-[url('/images/hero.jpg')] bg-center bg-cover">
@@ -26,16 +56,16 @@ const Auth = () => {
         <div className="flex justify-center items-center px-4">
           <div className="bg-black bg-opacity-90 px-8 py-16 lg:px-16 lg:py-16 mt-2 lg:mt-0 lg:w-2/5 lg:max-w-md rounded-md w-full max-w-md">
             <h2 className="text-white text-3xl mb-8 font-bold">
-              {variant == "signIn" ? "Sign In" : "Ready to watch?"}
+              {variant == "login" ? "Sign In" : "Ready to watch?"}
             </h2>
             <div className="flex flex-col gap-4">
-              {variant == "signUp" && (
+              {variant == "register" && (
                 <Input
                   label="Username"
                   onChange={(ev: any) => setUsername(ev.target.value)}
-                  id="username"
-                  type="username"
-                  value={username}
+                  id="name"
+                  type="name"
+                  value={name}
                 />
               )}
               <Input
@@ -53,16 +83,19 @@ const Auth = () => {
                 value={password}
               />
             </div>
-            <button className="bg-blue-700 py-3 text-white rounded-md w-full mt-6 hover:bg-blue-800 transition">
-              {variant == "signIn" ? "Sign In" : "Get Started"}
+            <button
+              onClick={variant == "login" ? login : register}
+              className="bg-blue-700 py-3 text-white rounded-md w-full mt-6 hover:bg-blue-800 transition"
+            >
+              {variant == "login" ? "Sign In" : "Get Started"}
             </button>
             <p className="text-neutral-400 mt-8 font-semibold">
-              {variant == "signIn" ? "New to Nextream?" : "Already a member?"}
+              {variant == "login" ? "New to Nextream?" : "Already a member?"}
               <span
                 onClick={toggleVariant}
                 className="text-white ml-1 hover:underline cursor-pointer"
               >
-                {variant == "signIn" ? "Sign up now." : "Sign in now."}
+                {variant == "login" ? "Sign up now." : "Sign in now."}
               </span>
             </p>
           </div>
