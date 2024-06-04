@@ -2,9 +2,14 @@ import NextAuth from "next-auth/next";
 import Credentials from "next-auth/providers/credentials";
 import prismadb from "@/lib/prismadb";
 import { compare } from "bcrypt";
+import GoogleProvider from 'next-auth/providers/google';
 
 export default NextAuth({
   providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID ||''
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET ||''
+    }),
     Credentials({
       id: "credentials",
       name: "credentials",

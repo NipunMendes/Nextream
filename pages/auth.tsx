@@ -4,6 +4,8 @@ import { useCallback, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 
+import { FcGoogle } from "react-icons/fc";
+
 const Auth = () => {
   const router = useRouter();
   const [name, setUsername] = useState("");
@@ -89,7 +91,24 @@ const Auth = () => {
             >
               {variant == "login" ? "Sign In" : "Get Started"}
             </button>
-            <p className="text-neutral-400 mt-8 font-semibold">
+            <div className="flex flex-row items-center gap-4 mt-8 justify-center">
+              <div className="
+              w-10
+              h-10
+              bg-white
+              rounded-full
+              flex
+              items-center
+              justify-center
+              cursor-pointer
+              hover:opacity-80
+              transition
+              ">
+                <FcGoogle/>
+              </div>
+
+            </div>
+            <p className="text-neutral-400 mt-4 font-semibold">
               {variant == "login" ? "New to Nextream?" : "Already a member?"}
               <span
                 onClick={toggleVariant}
