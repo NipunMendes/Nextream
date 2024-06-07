@@ -11,7 +11,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
   return (
     <div
       style={{ marginTop: "10px" }}
-      className="group bg-zinc-900 col-span relative h-[12vw]"
+      className="group bg-zinc-900 col-span relative h-[14vw]"
     >
       <img
         className="
@@ -95,18 +95,18 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
             >
               <FaPlay size={20} />
             </div>
-            <FavoriteButton movieId={data?.id}/>
+            <FavoriteButton movieId={data?.id} />
           </div>
           <p className="text-blue-500 font-semibold mt-4">
             New <span className="text-white">2024</span>
-                  </p>
-                  
-                  <div className="flex flex-row mt-4 gap-2 items-center">
-                      <p className="text-white text-[10px] lg:text-sm">{data.duration}</p>
-                  </div>
-                  <div className="flex flex-row mt-4 gap-2 items-center">
-                      <p className="text-white text-[10px] lg:text-sm">{data.genre}</p>
-                  </div>
+          </p>
+
+          <div className="flex flex-row mt-4 gap-2 items-center">
+            <p className="text-white text-[10px] lg:text-sm">{data.duration}</p>
+          </div>
+          <div className="flex flex-row mt-4 gap-2 items-center">
+            <p className="text-white text-[10px] lg:text-sm">{data.genre}</p>
+          </div>
         </div>
       </div>
     </div>
