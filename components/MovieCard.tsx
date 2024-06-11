@@ -1,4 +1,5 @@
 import React from "react";
+import router, { useRouter } from "next/router";
 
 import { FaPlay } from "react-icons/fa";
 import FavoriteButton from "./FavoriteButton";
@@ -91,7 +92,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
                             transition
                             hover:bg-neutral-300
                             "
-              onClick={() => {}}
+              onClick={() => router.push(`/watch/${data?.id}`)}
             >
               <FaPlay size={20} />
             </div>
