@@ -116,13 +116,13 @@ const InfoModal: React.FC<InfoModalProps> = ({ visible, onClose }) => {
               New
             </p>
             <p className="text-white text-lg">
-              {data?.duration}
+              Duration: {data?.duration}
             </p>
             <p className="text-white text-lg">
-              {data?.genre}
+              Genre: {data?.genre}
             </p>
             <p className="text-white text-lg">
-              {data?.description}
+              Description: {data?.description}
             </p>
           </div>
         </div>

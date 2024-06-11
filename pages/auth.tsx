@@ -44,14 +44,14 @@ const Auth = () => {
   }, [email, name, password, login]);
 
   return (
-    <div className="relative h-full w-full bg-[url('/images/hero.jpg')] bg-center bg-cover">
-      <div className="h-full w-full bg-black bg-opacity-70 lg:bg-opacity-70">
+    <div className="relative h-full w-full bg-[url('/images/hero3.jpg')] bg-center bg-cover">
+      <div className="h-full w-full bg-black bg-opacity-85 lg:bg-opacity-85">
         <nav className="px-8 py-3">
           <img src="/images/logo2.png" alt="Logo" className="h-20" />
         </nav>
 
         <div className="flex justify-center items-center px-4">
-          <div className="bg-black bg-opacity-90 px-8 py-16 lg:px-16 lg:py-16 mt-2 lg:mt-0 lg:w-2/5 lg:max-w-md rounded-md w-full max-w-md">
+          <div className="bg-black bg-opacity-75 px-8 py-8 lg:px-16 lg:py-8 mt-2 lg:mt-0 lg:w-2/5 lg:max-w-md w-full max-w-md">
             <h2 className="text-white text-3xl mb-8 font-bold">
               {variant == "login" ? "Sign In" : "Ready to watch?"}
             </h2>
