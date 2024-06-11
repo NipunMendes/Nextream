@@ -3,12 +3,17 @@ import router, { useRouter } from "next/router";
 
 import { FaPlay } from "react-icons/fa";
 import FavoriteButton from "./FavoriteButton";
+import useInfoModal from "@/hooks/useInfoModel";
+import { BiChevronDown } from "react-icons/bi";
 
 interface MovieCardProps {
   data: Record<string, any>;
 }
 
 const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
+  const router = useRouter();
+  const { openModal } = useInfoModal();
+
   return (
     <div
       style={{ marginTop: "10px" }}
@@ -97,6 +102,29 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
               <FaPlay size={20} />
             </div>
             <FavoriteButton movieId={data?.id} />
+            <div 
+            onClick={()=>openModal(data?.id)}
+            className="
+            cursor-pointer
+            ml-auto
+            group/item
+            w-10
+            h-10
+            lg:w-10
+            lg:h-10
+            border-white
+            border-2
+            rounded-full
+            flex
+            justify-center
+            items-center
+            transition
+            hover:border-neutral-300
+            "><BiChevronDown 
+            className=
+            "text-white
+            group-hover/item:text-nutral-300
+            " size={25}/></div>
           </div>
           <p className="text-blue-500 font-semibold mt-4">
             New <span className="text-white">2024</span>

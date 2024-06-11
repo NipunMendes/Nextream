@@ -33,8 +33,8 @@ const Watch = () => {
           className="text-white cursor-pointer"
           size={25}
         />
-        <p className="text-white text-1xl md:text-3xl font-bold">
-          <span className="font-light">Watching:</span>
+        <p className="text-white text-2xl md:text-3xl font-bold">
+          <span className="font-light">Now: </span>
 
           {data?.title}
         </p>
