@@ -104,31 +104,33 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
               <FaPlay size={10} />
             </div>
             <FavoriteButton movieId={data?.id} />
-            <div 
-            onClick={()=>openModal(data?.id)}
-            className="
-            cursor-pointer
-            ml-auto
-            group/item
-            w-5
-            h-5
-            lg:w-10
-            lg:h-10
-            border-white
-            border-2
-            rounded-full
-            flex
-            justify-center
-            items-center
-            transition
-            hover:border-neutral-300
-            ">
-              <BiChevronDown 
+            <div
+              onClick={() => openModal(data?.id)}
+              className="
+  cursor-pointer
+  ml-auto
+  group/item
+  w-5
+  h-5
+  lg:w-10
+  lg:h-10
+  border-white
+  border-2
+  rounded-full
+  flex
+  justify-center
+  items-center
+  transition
+  hover:border-neutral-300
+  "
+            >
+              <BiChevronDown
                 size={25}
-            className=
-            "text-white
-            group-hover/item:text-nutral-300"/>
-              </div>
+                className="
+    text-white
+    group-hover/item:text-neutral-300"
+              />
+            </div>
           </div>
           <p className="text-blue-500 font-bold mt-2 text-[12px]">
             New <span className="text-white text-[12px]">2024</span>
