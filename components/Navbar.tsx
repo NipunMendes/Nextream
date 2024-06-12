@@ -20,13 +20,11 @@ const Navbar = () => {
       }
     };
 
-    window.addEventListener('scroll',handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
-    return ()=>{
-      window.removeEventListener('scrll', handleScroll);
-    }
-
-
+    return () => {
+      window.removeEventListener("scrll", handleScroll);
+    };
   }, []);
 
   const toggleMobileMenu = useCallback(() => {
@@ -49,7 +47,7 @@ const Navbar = () => {
             items-center
             transition
             duration-500
-            ${showBackground ? 'bg-zinc-900 bg-opacity-90' : ''}
+            ${showBackground ? "bg-zinc-900 bg-opacity-90" : ""}
             `}
       >
         <img className="h-10 lg:h-16" src="/images/logo2.png" alt="Logo" />

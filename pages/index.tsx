@@ -36,7 +36,7 @@ export default function Home() {
       <Billboard />
       <div className="pb-60">
         <MovieList title="Trending Now" data={movies} />
-        <MovieList title="Favorites" data={favorites} />
+        <MovieList title="Favorite" data={favorites} />
       </div>
     </>
   );

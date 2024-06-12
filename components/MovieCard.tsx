@@ -17,21 +17,21 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
   return (
     <div
       style={{ marginTop: "10px" }}
-      className="group bg-zinc-900 col-span relative h-[14vw]"
+      className="group bg-zinc-900 col-span relative h-[14vw] sm:h-[20vw] md:h-[14vw]"
     >
       <img
         className="
             cursor-pointer
             object-cover
             transition
-            duration
+            duration-300
             shadow-xl
             rounded-md
             group-hover:opacity-5
-            sm:gropu-hover:opacity-0
+            sm:gropu-hover:opacity-5
             delay-300
             w-full
-            h-[14vw]
+            h-full
             "
         src={data.thumbnailUrl}
         alt="Thumbnail"
@@ -46,12 +46,14 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
             z-10
             invisible
             sm:visible
+            group-hover:visible
             delay-300
             w-full
             scale-0
             group-hover:scale-110
-            group-hover:-translate-y-[6vw]
-            group-hover:translate-x-[0vw]
+            group-hover:-translate-y-[-2vw]
+            group-hover:translate-x-[-1vw]
+            group-hover:w-[120%]
             group-hover:opacity-100
         "
       >
@@ -64,7 +66,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
             shadow-xl
             rounded-t-md
             w-full
-            h-[12vw]"
+            h-[14vw]"
           src={data.thumbnailUrl}
           alt="Thumbnail"
         />
@@ -85,9 +87,9 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
             <div
               className="
                             cursor-pointer
-                            w-10
-                            h-10
-                            lg;w-10
+                            w-5
+                            h-5
+                            lg:w-10
                             lg:h-10
                             bg-white
                             rounded-full
@@ -99,7 +101,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
                             "
               onClick={() => router.push(`/watch/${data?.id}`)}
             >
-              <FaPlay size={20} />
+              <FaPlay size={10} />
             </div>
             <FavoriteButton movieId={data?.id} />
             <div 
@@ -108,8 +110,8 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
             cursor-pointer
             ml-auto
             group/item
-            w-10
-            h-10
+            w-5
+            h-5
             lg:w-10
             lg:h-10
             border-white
@@ -120,20 +122,22 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
             items-center
             transition
             hover:border-neutral-300
-            "><BiChevronDown 
+            ">
+              <BiChevronDown 
+                size={25}
             className=
             "text-white
-            group-hover/item:text-nutral-300
-            " size={25}/></div>
+            group-hover/item:text-nutral-300"/>
+              </div>
           </div>
-          <p className="text-blue-500 font-semibold mt-4">
-            New <span className="text-white">2024</span>
+          <p className="text-blue-500 font-bold mt-2 text-[12px]">
+            New <span className="text-white text-[12px]">2024</span>
           </p>
 
-          <div className="flex flex-row mt-4 gap-2 items-center">
+          <div className="flex flex-row mt-2 gap-2 items-center">
             <p className="text-white text-[10px] lg:text-sm">{data.duration}</p>
           </div>
-          <div className="flex flex-row mt-4 gap-2 items-center">
+          <div className="flex flex-row mt-2 gap-2 items-center">
             <p className="text-white text-[10px] lg:text-sm">{data.genre}</p>
           </div>
         </div>

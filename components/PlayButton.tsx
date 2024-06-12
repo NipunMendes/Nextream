@@ -27,7 +27,7 @@ const PlayButton: React.FC<PlayButtonProps> = ({ movieId }) => {
            transition
         "
     >
-      <BsFillPlayFill size={25} />
+      <BsFillPlayFill size={30} />
       Play
     </button>
   );

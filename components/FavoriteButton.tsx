@@ -46,7 +46,8 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({ movieId }) => {
       onClick={toggleFavorites}
       className="cursor-pointer 
       group/item 
-      w-10 h-10 
+      w-5
+      h-5
       lg:w-10 
       lg:h-10 
       border-white 
